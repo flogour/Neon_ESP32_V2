@@ -121,7 +121,7 @@
         }
 
         .widget-panel {
-
+            padding-right: 1rem;
         }
 
         @media (max-width: 768px) {
@@ -131,10 +131,17 @@
             .widget-item {
                 flex: 1 1 100%;
             }
+            
+        }
+
+        @media (max-width: 1319px) {
+            
             .widget-panel {
                 padding-bottom: 1rem;
+                padding-right: 0;
             }
         }
+        
         
     </style>
 </head>
@@ -188,7 +195,7 @@
                                     </div>
                                 </div>
                                 <!-- Time -->
-                                <div class="card-custom w-100 ms-3">
+                                <div class="card-custom ms-3 w-100">
                                     <div class="widget-title">Time</div>
                                     <div class="widget-subtitle">Paris, France</div>
                                     <div class="widget-content clock" id="digital-clock"></div>
@@ -204,7 +211,7 @@
                             </div>
                         </div>
                         <!-- Color Picker -->
-                        <div class="widget-item card-custom">
+                        <div class="widget-item card-custom" id="colors">
                             <div class="widget-title">Color Picker</div>
                             <div class="widget-subtitle">Pick a color</div>
                             <div class="widget-content">
@@ -217,13 +224,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
-
             <div class="col-md-12 pb-3">
                 <div class="widget-container">
                     <!-- Color -->
