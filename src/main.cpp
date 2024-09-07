@@ -36,9 +36,9 @@ double temps2 = 0;
 void handleRoot();
 void on_off();
 
-void setBrightness();
-void handleColor();
-void setLedColor(int r, int g, int b);
+//void setBrightness();
+//void handleColor();
+//void setLedColor(int r, int g, int b);
 
 
 
@@ -63,10 +63,10 @@ void setup() {
   // Routes du serveur web
   server.on("/", handleRoot);
 
-  server.on("/brightness", setBrightness);
+  //server.on("/brightness", setBrightness);
   server.on("/switchState", on_off);
 
-  server.on("/color", handleColor);
+  //server.on("/color", handleColor);
 
 
   // Démarrage du serveur web
