@@ -191,7 +191,7 @@
                                     <div class="widget-title">Power</div>
                                     <div class="widget-subtitle">Off / On</div>
                                     <div class="widget-content form-switch fs-1">
-                                        <input class="form-check-input" type="checkbox" role="switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="switch_on_off">
                                     </div>
                                 </div>
                                 <!-- Time -->
@@ -377,6 +377,27 @@
         }
 
         drawColorWheel();
+
+        //-------------------Fonction C------------------------
+
+        const switchElement = document.getElementById("switch_on_off");
+        var switchState = 0;
+
+        switchElement.addEventListener("change",function(){
+            if(this.checked){
+                switchState = 1;
+            }else{
+                switchState = 0;
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", '/switchState?switchState=' + switchState, true);
+            xhr.send();
+
+        });
+
+
+
     </script>
 </body>
 </html>

@@ -67,8 +67,7 @@ void setup() {
   server.on("/switchState", on_off);
 
   server.on("/color", handleColor);
-  /*server.on("/animation", handleAnimation);
-  server.on("/eteindre", set_extinction);*/
+
 
   // Démarrage du serveur web
   server.begin();
@@ -87,4 +86,31 @@ void loop() {
     extinction = 0;
   }
 }
+
+
+void handleRoot() {
+
+  File file = SPIFFS.open("/index.html", "r");
+  String html = file.readString();
+  file.close();
+
+  server.send(200, "text/html", html);
+}
+
+
+void on_off(){
+    int etat_switch = server.arg("switchState").toInt();
+    if(etat_switch == 1){
+        fill_solid(leds, NUM_LEDS, CRGB(255, 0, 0));
+        FastLED.setBrightness(brightness);
+    }
+    else{
+        FastLED.setBrightness(0);
+    }
+    
+    FastLED.show();
+    server.send(200, "text/plain", "Néon allumé !");
+}
+
+
 
